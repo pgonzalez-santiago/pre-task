@@ -19,6 +19,7 @@ const api = create({
       your requests through your own backend script.
 
     */
+    Accept:              'application/json',
     'X-CMC_PRO_API_KEY': '21d2103b-493f-423b-a3f5-d18e2e70c79b',
   },
 })
