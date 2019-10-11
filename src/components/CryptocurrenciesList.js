@@ -42,69 +42,73 @@ const CyrptocurrenciesList = ({
 
   if (error) {
     return (
-      <Text translate={false}>{error}</Text>
+      <Container>
+        <Text translate={false}>{error}</Text>
+      </Container>
     )
   }
 
   if (fetching && cyrptocurrencies.length === 0) {
     return (
-      <div>
+      <Container>
         <CircularProgress />
-      </div>
+      </Container>
     )
   }
 
   return (
-    <Paper>
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell onClick={() => setSort('name')}>
-              <HeaderTitle active={sort === 'name'}>currency</HeaderTitle>
-            </TableCell>
-            <TableCell align="right" onClick={() => setSort('symbol')}>
-              <HeaderTitle active={sort === 'symbol'}>symbol</HeaderTitle>
-            </TableCell>
-            <TableCell align="right" onClick={() => setSort('total_supply')}>
-              <HeaderTitle active={sort === 'total_supply'}>total_supply</HeaderTitle>
-            </TableCell>
-            <TableCell align="right" onClick={() => setSort('num_market_pairs')}>
-              <HeaderTitle active={sort === 'num_market_pairs'}>numberMarketPairs</HeaderTitle>
-            </TableCell>
-            <TableCell align="right" onClick={() => setSort('date_added')}>
-              <HeaderTitle active={sort === 'date_added'}>dateAdded</HeaderTitle>
-            </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {cyrptocurrencies.map(currency => (
-            <TableRow key={currency.id}>
-              <TableCell component="th" scope="currency">
-                {currency.name}
+    <Container>
+      <Paper>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell onClick={() => setSort('name')}>
+                <HeaderTitle active={sort === 'name'}>currency</HeaderTitle>
               </TableCell>
-              <TableCell align="right">{currency.symbol}</TableCell>
-              <TableCell align="right">{currency.total_supply}</TableCell>
-              <TableCell align="right">{currency.num_market_pairs}</TableCell>
-              <TableCell align="right">{new Date(currency.date_added).toLocaleString()}</TableCell>
+              <TableCell align="right" onClick={() => setSort('symbol')}>
+                <HeaderTitle active={sort === 'symbol'}>symbol</HeaderTitle>
+              </TableCell>
+              <TableCell align="right" onClick={() => setSort('total_supply')}>
+                <HeaderTitle active={sort === 'total_supply'}>total_supply</HeaderTitle>
+              </TableCell>
+              <TableCell align="right" onClick={() => setSort('num_market_pairs')}>
+                <HeaderTitle active={sort === 'num_market_pairs'}>numberMarketPairs</HeaderTitle>
+              </TableCell>
+              <TableCell align="right" onClick={() => setSort('date_added')}>
+                <HeaderTitle active={sort === 'date_added'}>dateAdded</HeaderTitle>
+              </TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-      <TablePagination
-        rowsPerPageOptions={[10]}
-        component="div"
-        count={Infinity} // NOTE: How to get currencies total from the backend.
-        rowsPerPage={10}
-        page={page}
-        backIconButtonProps={{
-          'aria-label': 'previous page',
-        }}
-        nextIconButtonProps={{
-          'aria-label': 'next page',
-        }}
-        onChangePage={(e, page) => setPage(page)}
-      />
-    </Paper>
+          </TableHead>
+          <TableBody>
+            {cyrptocurrencies.map(currency => (
+              <TableRow key={currency.id}>
+                <TableCell component="th" scope="currency">
+                  {currency.name}
+                </TableCell>
+                <TableCell align="right">{currency.symbol}</TableCell>
+                <TableCell align="right">{currency.total_supply}</TableCell>
+                <TableCell align="right">{currency.num_market_pairs}</TableCell>
+                <TableCell align="right">{new Date(currency.date_added).toLocaleString()}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+        <TablePagination
+          rowsPerPageOptions={[10]}
+          component="div"
+          count={2399} // NOTE: How to get currencies total from the backend.
+          rowsPerPage={10}
+          page={page}
+          backIconButtonProps={{
+            'aria-label': 'previous page',
+          }}
+          nextIconButtonProps={{
+            'aria-label': 'next page',
+          }}
+          onChangePage={(e, page) => setPage(page)}
+        />
+      </Paper>
+    </Container>
   )
 }
 
@@ -120,6 +124,13 @@ CyrptocurrenciesList.defaultProps = {}
 /* Local utility functions */
 
 /* Styles */
+const Container = styled.div`
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  min-height: 500px;
+`
+
 const HeaderTitle = styled(Text)`
   font-weight: ${p => p.active ? 'bold' : 'normal'};
   &:hover {

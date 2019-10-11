@@ -2,6 +2,7 @@
 import React, { useCallback } from 'react'
 import { func, string } from 'prop-types'
 import { connect } from 'react-redux'
+import styled from 'styled-components'
 
 /* Material-UI */
 import Switch from '@material-ui/core/Switch'
@@ -20,7 +21,7 @@ const LanguageSelector = ({ changeLang, currentLang }) => {
   )
 
   return (
-    <div>
+    <Container>
       <Text>spanish</Text>
       <Switch
         defaultChecked
@@ -30,7 +31,7 @@ const LanguageSelector = ({ changeLang, currentLang }) => {
         inputProps={{ 'aria-label': 'checkbox with default color' }}
       />
       <Text>english</Text>
-    </div>
+    </Container>
   )
 }
 
@@ -44,6 +45,13 @@ LanguageSelector.defaultProps = {}
 /* Local utility functions */
 
 /* Styles */
+
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+`
 
 const mapStateToProps = (state) => {
   return {
