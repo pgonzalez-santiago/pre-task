@@ -10,19 +10,21 @@ export const {
   },
   selectors: {
     getList,
+    getFetching,
+    getError,
   },
 } = autodux({
   // No need to implement switching logic -- it's
   // done for you.
   actions: {
-    failed:  (state) => ({ ...state, error: true, fetching: false }),
-    request: (state) => ({ ...state, error: false, fetching: true }),
-    success: (state, list) => ({ ...state, error: false, fetching: false, list }),
+    failed:  (state, error) => ({ ...state, error: error, fetching: false }),
+    request: (state) => ({ ...state, error: null, fetching: true }),
+    success: (state, list) => ({ ...state, error: null, fetching: false, list }),
   },
 
   // The initial value of your reducer state
   initial: {
-    error:    false,
+    error:    null,
     fetching: false,
     list:     [],
   },

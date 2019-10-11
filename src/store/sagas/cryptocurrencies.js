@@ -6,14 +6,23 @@ import {
   failed,
 } from '../../store/reducers/cryptocurrencies'
 
-export function * getCryptocurrencies ({ payload: { page, limit } }) {
-  const response = yield api.get(`cryptocurrency/listings/latest?start=${page}&limit=${limit}`)
+import I18n from '../../assets/lang'
+
+export function * getCryptocurrencies ({ payload: { page, limit, sort } }) {
+  const response = yield api.get(`cryptocurrency/listings/latest?start=${page}&limit=${limit}&sort=${sort}&sort_dir=asc`)
 
   if (response.ok) {
     // call repository contributors success action
     yield put(success(response.data.data))
   } else {
+    if (!response.data) {
+      return yield put(failed(I18n.t('corsError')))
+    }
     // call repository contributors failure action
-    yield put(failed())
+    if (!response.data.status) {
+      yield put(failed(I18n.t('commonError')))
+    } else {
+      yield put(failed(response.data.status.error_message))
+    }
   }
 }
