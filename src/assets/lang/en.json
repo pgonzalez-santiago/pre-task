@@ -1,9 +1,11 @@
 {
+  "spanish": "Spanish",
+  "english": "English",
   "currency": "Currency",
   "symbol": "Symbol",
   "total_supply": "Total supply",
   "numberMarketPairs": "Number of market pairs",
   "dateAdded": "Date added",
   "commonError": "Something went wrong",
-  "corsError": "CORS ERROR: Allow CORS: Access-Control-Allow-Origin to view the application. Example fro chrome: https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=en"
+  "corsError": "CORS ERROR: Allow CORS: Access-Control-Allow-Origin to view the application. Example for chrome: https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=en"
 }

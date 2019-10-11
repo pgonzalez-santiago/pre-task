@@ -1,0 +1,11 @@
+{
+  "spanish": "Español",
+  "english": "Inglés",
+  "currency": "Moneda",
+  "symbol": "Símbolo",
+  "total_supply": "Suministro total",
+  "numberMarketPairs": "Número de pares de mercado",
+  "dateAdded": "Fecha de inserción",
+  "commonError": "Ups, Algo ha ido mal.",
+  "corsError": "CORS ERROR: Allow CORS: Access-Control-Allow-Origin para ver la aplicación. Ejemplo para chrome: https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=en"
+}

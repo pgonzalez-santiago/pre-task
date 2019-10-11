@@ -1,4 +1,5 @@
 import autodux, { id } from 'autodux'
+import I18n, { DEFAULT_LANG } from '../../assets/lang'
 
 export const {
   reducer,
@@ -14,11 +15,15 @@ export const {
   // No need to implement switching logic -- it's
   // done for you.
   actions: {
-    set: (state, lang) => lang, // eslint-disable-line no-unused-vars
+    set: (state, lang) => {
+      I18n.locale = lang
+
+      return lang
+    }, // eslint-disable-line no-unused-vars
   },
 
   // The initial value of your reducer state
-  initial: 'es',
+  initial: DEFAULT_LANG,
 
   // No need to select the state slice -- it's done for you.
   selectors: {

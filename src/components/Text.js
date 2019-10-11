@@ -30,7 +30,6 @@ Text.defaultProps = {
 
 /* Local utility functions */
 export const getValue = (shouldTranslate, value) => {
-  // TODO: Allow variables
   return shouldTranslate ? I18n.t(value) : value
 }
 
