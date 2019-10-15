@@ -3,5 +3,3 @@
 exports[`Text component renders correctly with translate 1`] = `ShallowWrapper {}`;
 
 exports[`Text component renders correctly without translate 1`] = `ShallowWrapper {}`;
-
-exports[`renders correctly 1`] = `ShallowWrapper {}`;

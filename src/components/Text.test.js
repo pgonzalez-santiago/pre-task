@@ -21,7 +21,7 @@ describe('Text component', () => {
         currentLang={'en'}
         translate={false}
       >
-        Test to render
+        Test
       </Text>
     )
     expect(wrapper).toMatchSnapshot()
