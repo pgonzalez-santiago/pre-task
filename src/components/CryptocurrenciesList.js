@@ -1,5 +1,5 @@
 /* Global imports */
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { array, bool, func, string } from 'prop-types'
 import styled from 'styled-components'
@@ -25,15 +25,15 @@ import Text from './Text'
 
 /* Component definition */
 
-const CyrptocurrenciesList = ({
+export const CryptocurrenciesList = ({
   error,
   fetching,
   cyrptocurrencies,
   getCurrenciesList,
 }) => {
-  const [page, setPage] = useState(0)
-  const [sort, setSort] = useState('market_cap')
-
+  // NOTE: React.useState instead of useState Needed to spy on in tests.
+  const [page, setPage] = React.useState(0)
+  const [sort, setSort] = React.useState('market_cap')
   useEffect(() => {
     if (page + 1 >= 1) {
       getCurrenciesList(page + 1, 10, sort)
@@ -113,13 +113,13 @@ const CyrptocurrenciesList = ({
 }
 
 /* PropTypes */
-CyrptocurrenciesList.propTypes = {
+CryptocurrenciesList.propTypes = {
   cyrptocurrencies:  array.isRequired,
   error:             string,
   fetching:          bool,
   getCurrenciesList: func.isRequired,
 }
-CyrptocurrenciesList.defaultProps = {}
+CryptocurrenciesList.defaultProps = {}
 
 /* Local utility functions */
 
@@ -152,4 +152,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CyrptocurrenciesList)
+export default connect(mapStateToProps, mapDispatchToProps)(CryptocurrenciesList)

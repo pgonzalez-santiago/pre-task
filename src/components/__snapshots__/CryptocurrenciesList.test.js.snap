@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CryptocurrenciesList component renders correctly with currencies 1`] = `ShallowWrapper {}`;
+
+exports[`CryptocurrenciesList component renders correctly with empty list 1`] = `ShallowWrapper {}`;
+
+exports[`CryptocurrenciesList component renders correctly with error 1`] = `ShallowWrapper {}`;
+
+exports[`CryptocurrenciesList component renders correctly with fetching 1`] = `ShallowWrapper {}`;
