@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ConnectedCryptocurrenciesList Stays the same as before with id and application 1`] = `ReactWrapper {}`;
+
 exports[`CryptocurrenciesList component renders correctly with currencies 1`] = `ShallowWrapper {}`;
 
 exports[`CryptocurrenciesList component renders correctly with empty list 1`] = `ShallowWrapper {}`;

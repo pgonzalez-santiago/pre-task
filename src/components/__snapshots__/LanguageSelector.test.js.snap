@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConnectedLanguageSelector Stays the same as before with id and application 1`] = `ReactWrapper {}`;
+
+exports[`Language Selector component renders correctly with error 1`] = `ShallowWrapper {}`;

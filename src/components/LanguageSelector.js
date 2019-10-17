@@ -12,7 +12,7 @@ import { getCurrent, set } from '../store/reducers/language'
 import Text from './Text'
 
 /* Component definition */
-const LanguageSelector = ({ changeLang, currentLang }) => {
+export const LanguageSelector = ({ changeLang, currentLang }) => {
   const handleLangChange = useCallback(
     () => {
       changeLang(currentLang === 'en' ? 'es' : 'en')

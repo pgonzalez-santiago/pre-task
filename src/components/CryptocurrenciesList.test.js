@@ -1,9 +1,11 @@
 import React from 'react'
-import { CryptocurrenciesList } from './CryptocurrenciesList'
-import { shallow } from 'enzyme'
+import ConnectedCryptocurrenciesList, { CryptocurrenciesList } from './CryptocurrenciesList'
+import { mount, shallow } from 'enzyme'
 import TableCell from '@material-ui/core/TableCell'
 import TablePagination from '@material-ui/core/TablePagination'
-
+import { Provider } from 'react-redux'
+import configureStore from 'redux-mock-store'
+import { INITIAL_STORE } from '../../test/mocks.js'
 const CURRENCIES = [
       {
         id: 3857,
@@ -418,5 +420,32 @@ describe('CryptocurrenciesList component', () => {
       wrapper.find(TablePagination).at(0).props().onChangePage(null, 2)
       expect(setState).toHaveBeenCalledWith(2)
     })
+  })
+})
+
+describe('ConnectedCryptocurrenciesList', () => {
+  const mockStore = configureStore()
+  let wrapper
+  let store
+
+  store = mockStore(INITIAL_STORE)
+
+  wrapper = mount(
+      <Provider store={store}>
+        <ConnectedCryptocurrenciesList />
+      </Provider>
+  )
+
+  it('Stays the same as before with id and application', () => {
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('Actions called properly', () => {
+    const ChildComponent = wrapper.find(CryptocurrenciesList)
+    expect(ChildComponent.props().getCurrenciesList(1, 10, 'date_added')).toEqual({ "payload": {
+    limit: 10,
+    page: 1,
+    sort: "date_added"
+  }, "type": "cryptocurrencies/request" })
   })
 })

@@ -34,6 +34,7 @@ export const CryptocurrenciesList = ({
   // NOTE: React.useState instead of useState Needed to spy on in tests.
   const [page, setPage] = React.useState(0)
   const [sort, setSort] = React.useState('market_cap')
+
   useEffect(() => {
     if (page + 1 >= 1) {
       getCurrenciesList(page + 1, 10, sort)
